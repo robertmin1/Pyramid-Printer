@@ -1,0 +1,10 @@
+task:
+  name: Test
+  container:
+    image: debian:latest
+  install script:
+    - apt-get update
+    - apt-get install -y golang-go
+    - apt-get install -y git 
+  test_script:
+    - testdata/test.bash
