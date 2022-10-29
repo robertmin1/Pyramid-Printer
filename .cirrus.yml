@@ -8,6 +8,8 @@ task:
       package_install_script:
         - dnf install -y golang-go
         - dnf install -y git
+      env:
+        CI_DISTRO: fedora
     - container:
         image: debian:latest
         cpu: 1
@@ -16,5 +18,7 @@ task:
         - apt-get update
         - apt-get install -y golang-go
         - apt-get install -y git 
+      env:
+        CI_DISTRO: fedora
   test_script:
     - testdata/test.bash
