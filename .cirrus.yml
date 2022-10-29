@@ -19,6 +19,6 @@ task:
         - apt-get install -y golang-go
         - apt-get install -y git 
       env:
-        CI_DISTRO: fedora
+        CI_DISTRO: debian
   test_script:
     - testdata/test.bash
