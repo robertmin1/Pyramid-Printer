@@ -1,10 +1,20 @@
 task:
-  name: Test
-  container:
-    image: debian:latest
-  install script:
-    - apt-get update
-    - apt-get install -y golang-go
-    - apt-get install -y git 
+  name: "Pyramid Printer $CI_DISTRO"
+  matrix:
+    - container:
+        image: fedora:latest
+        cpu: 1
+        memory: 1G
+      package_install_script:
+        - dnf install -y golang-go
+        - dnf install -y git
+    - container:
+        image: debian:latest
+        cpu: 1
+        memory: 1G
+      package_install_script:
+        - apt-get update
+        - apt-get install -y golang-go
+        - apt-get install -y git 
   test_script:
     - testdata/test.bash
