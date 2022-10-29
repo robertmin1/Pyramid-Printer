@@ -20,16 +20,6 @@ task:
         - apt-get install -y git 
       env:
         CI_DISTRO: debian
-    - container:
-        image: cirrusci/windowsservercore:2019
-        cpu: 1
-        memory: 1G
-      package_install_script:
-        - apt-get update
-        - apt-get install -y golang-go
-        - apt-get install -y git 
-      env:
-        CI_DISTRO: debian
   test_script:
     - testdata/test.bash
 
